@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #030340;         /* dark blue */
+    --foreground: #FFECD1;         /* sand/cream white */
+    --primary: #008491;            /* teal — main accent */
+    --primary-foreground: #030340;
+    --secondary: #371F7D;          /* violet — depth */
+    --accent: #FF7D00;             /* orange — CTA, highlights */
+    --accent-foreground: #030340;
+    --muted: hsl(240 20% 40%);
+    --muted-foreground: hsl(240 10% 65%);
+    --border: hsl(240 30% 20%);
+    --ring: #008491;
+    --radius: 0.75rem;
+    --dark-blue: #030340;          /* brand dark blue */
+    --deep-umber: #78290F;         /* #78290F */
+    --sand: #FFECD1;               /* #FFECD1 */
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: Inter, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: Oswald, sans-serif;
+    text-transform: uppercase;
+  }
+
+  ::selection {
+    background: rgb(0 132 145 / 0.3);
+    color: var(--foreground);
+  }
+}
+
+@layer components {
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.02);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.4px;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.08) 20%,
+      transparent 40%,
+      transparent 60%,
+      rgba(255, 255, 255, 0.08) 80%,
+      rgba(255, 255, 255, 0.25) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .diagonal-cut {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .diagonal-cut-reverse {
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
