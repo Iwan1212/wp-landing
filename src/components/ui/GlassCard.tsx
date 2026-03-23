@@ -5,12 +5,14 @@ interface GlassCardProps {
   children: ReactNode;
   className?: string;
   hover?: boolean;
+  style?: React.CSSProperties;
 }
 
 export function GlassCard({
   children,
   className = "",
   hover = true,
+  style,
 }: GlassCardProps) {
   return (
     <motion.div
@@ -20,6 +22,7 @@ export function GlassCard({
       whileHover={hover ? { y: -5 } : undefined}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`liquid-glass rounded-2xl ${className}`}
+      style={style}
     >
       {children}
     </motion.div>

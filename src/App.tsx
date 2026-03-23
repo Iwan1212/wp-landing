@@ -1,3 +1,4 @@
+import { FloatingDisc } from "./components/ui/FloatingDisc";
 import { Navbar } from "./components/sections/Navbar";
 import { Hero } from "./components/sections/Hero";
 import { About } from "./components/sections/About";
@@ -12,8 +13,10 @@ import { Footer } from "./components/sections/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "var(--background)" }}>
-      <Navbar />
+    <>
+      <FloatingDisc />
+      <div className="min-h-screen relative overflow-clip" style={{ backgroundColor: "var(--background)" }}>
+        <Navbar />
       <Hero />
       <About />
       <Teams />
@@ -23,7 +26,8 @@ export default function App() {
       <Sponsors />
       <Blog />
       <CTA />
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }

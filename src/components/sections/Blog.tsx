@@ -43,7 +43,7 @@ export function Blog() {
           viewport={{ once: true }}
           className="flex items-center gap-3 mb-8"
         >
-          <Badge>AKTUALNOŚCI</Badge>
+          <Badge variant="orange">AKTUALNOŚCI</Badge>
         </motion.div>
 
         <BlurText

@@ -10,18 +10,24 @@ const stats = [
     label: "Duch drużyny",
     description:
       "Nasze wartości to zespołowość, szacunek i wsparcie dla każdego gracza.",
+    iconColor: "#FF7D00",
+    bgColor: "rgba(255,125,0,0.15)",
   },
   {
     icon: TrendingUp,
     label: "Rozwój",
     description:
       "Ciągle się ulepszamy, uczestnicząc w turniejach i dzieląc się doświadczeniem.",
+    iconColor: "#008491",
+    bgColor: "rgba(0,132,145,0.15)",
   },
   {
     icon: Users,
     label: "Społeczność",
     description:
       "Budujemy silną społeczność graczy ultimate frisbee w Wrocławiu i regionie.",
+    iconColor: "#8B6FD0",
+    bgColor: "rgba(55,31,125,0.2)",
   },
 ];
 
@@ -46,7 +52,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <Badge className="mb-6">O NAS</Badge>
+          <Badge className="mb-6" variant="orange">O NAS</Badge>
           <BlurText
             text="WIĘCEJ NIŻ SPORT"
             as="h2"
@@ -111,12 +117,12 @@ export function About() {
                       <div
                         className="w-12 h-12 rounded-lg flex items-center justify-center"
                         style={{
-                          backgroundColor: "rgba(0, 132, 145, 0.2)",
+                          backgroundColor: stat.bgColor,
                         }}
                       >
                         <Icon
                           className="w-6 h-6"
-                          style={{ color: "var(--primary)" }}
+                          style={{ color: stat.iconColor }}
                         />
                       </div>
                     </motion.div>

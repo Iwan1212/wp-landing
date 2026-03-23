@@ -39,6 +39,7 @@ export function Teams() {
     <section
       id="teams"
       className="relative w-full py-24 md:py-32 overflow-hidden"
+      style={{ background: "linear-gradient(180deg, transparent, rgba(55,31,125,0.08) 50%, transparent)" }}
     >
       {/* Background gradient blobs */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -55,7 +56,7 @@ export function Teams() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <Badge className="mb-6">DRUŻYNY</Badge>
+          <Badge className="mb-6" variant="violet">DRUŻYNY</Badge>
           <BlurText
             text="NASZE SEKCJE"
             as="h2"

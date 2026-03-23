@@ -11,24 +11,27 @@ const schedule = [
     time: "19:00-21:00",
     location: "Hala sportowa",
     shortDay: "Pon",
+    accent: "#008491",
   },
   {
     day: "Środa",
     time: "19:00-21:00",
     location: "Hala sportowa",
     shortDay: "Śro",
+    accent: "#371F7D",
   },
   {
     day: "Sobota",
     time: "10:00-12:00",
     location: "Park Południowy (outdoor)",
     shortDay: "Sob",
+    accent: "#FF7D00",
   },
 ];
 
 export function Training() {
   return (
-    <section className="py-20 px-4 md:px-8 lg:px-16">
+    <section className="py-20 px-4 md:px-8 lg:px-16" style={{ background: "linear-gradient(180deg, transparent, rgba(0,132,145,0.06) 50%, transparent)" }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -36,7 +39,7 @@ export function Training() {
           viewport={{ once: true }}
           className="flex items-center gap-3 mb-8"
         >
-          <Badge>TRENINGI</Badge>
+          <Badge variant="violet">TRENINGI</Badge>
         </motion.div>
 
         <BlurText
@@ -83,7 +86,7 @@ export function Training() {
                     ease: [0.16, 1, 0.3, 1],
                   }}
                 >
-                  <GlassCard hover className="h-full p-6 flex flex-col gap-4">
+                  <GlassCard hover className="h-full p-6 flex flex-col gap-4" style={{ borderTop: `3px solid ${session.accent}` }}>
                     <div>
                       <h3 className="text-lg font-bold text-foreground uppercase mb-1">
                         {session.day}

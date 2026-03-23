@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Korolev Compressed";
+  src: url("/fonts/KorolevCompressed-Light.otf") format("opentype");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Korolev Compressed";
+  src: url("/fonts/KorolevCompressed-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Korolev Compressed";
+  src: url("/fonts/KorolevCompressed-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Korolev Compressed";
+  src: url("/fonts/KorolevCompressed-Heavy.otf") format("opentype");
+  font-weight: 900;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: #030340;         /* dark blue */
@@ -29,7 +57,7 @@
   }
 
   h1, h2, h3, h4 {
-    font-family: Oswald, sans-serif;
+    font-family: "Korolev Compressed", sans-serif;
     text-transform: uppercase;
   }
 

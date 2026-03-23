@@ -11,6 +11,7 @@ interface Achievement {
   description: string;
   icon: typeof Trophy;
   side: "left" | "right";
+  color: string;
 }
 
 const achievements: Achievement[] = [
@@ -21,6 +22,7 @@ const achievements: Achievement[] = [
       "Nasze Mixed Team zagrało w finałowych turniejach Ligi Polskiego Ultimate, konkurując z najlepszymi drużynami kraju.",
     icon: Trophy,
     side: "left",
+    color: "#FF7D00",
   },
   {
     year: "2023",
@@ -29,6 +31,7 @@ const achievements: Achievement[] = [
       "Solid performance na Hella Mistrzostwa Powiatu potwierdzając naszą pozycję wśród czołowych drużyn regionu.",
     icon: Medal,
     side: "right",
+    color: "#008491",
   },
   {
     year: "2022",
@@ -37,6 +40,7 @@ const achievements: Achievement[] = [
       "Zwycięstwo w jednym z najbardziej prestiżowych turniejów ultimate frisbee w Polsce.",
     icon: Star,
     side: "left",
+    color: "#8B6FD0",
   },
   {
     year: "2021",
@@ -45,6 +49,7 @@ const achievements: Achievement[] = [
       "Dominujące zwycięstwo w Mistrzostwach Dolnośląskiego, udowadniając naszą hegemonię regionalną.",
     icon: Trophy,
     side: "right",
+    color: "#FF7D00",
   },
   {
     year: "2020",
@@ -53,6 +58,7 @@ const achievements: Achievement[] = [
       "Mimo wyzwań pandemicznych, dotarliśmy do finału Polskich Mistrzostw Powiatu.",
     icon: Medal,
     side: "left",
+    color: "#008491",
   },
   {
     year: "2019",
@@ -61,6 +67,7 @@ const achievements: Achievement[] = [
       "Reprezentowaliśmy Polskę na europejskich mistrzostwach klubowych ultimate frisbee.",
     icon: Star,
     side: "right",
+    color: "#8B6FD0",
   },
 ];
 
@@ -88,7 +95,7 @@ export function Achievements() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <Badge className="mb-6 inline-block">OSIĄGNIĘCIA</Badge>
+          <Badge className="mb-6 inline-block" variant="orange">OSIĄGNIĘCIA</Badge>
           <BlurText
             text="NASZA DROGA"
             as="h2"
@@ -128,19 +135,19 @@ export function Achievements() {
                         <div
                           className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
                           style={{
-                            backgroundColor: "rgba(0, 132, 145, 0.2)",
+                            backgroundColor: `${achievement.color}20`,
                           }}
                         >
                           <Icon
                             className="w-6 h-6"
-                            style={{ color: "var(--primary)" }}
+                            style={{ color: achievement.color }}
                           />
                         </div>
 
                         <div>
                           <div
                             className="text-sm font-heading font-bold uppercase tracking-wider"
-                            style={{ color: "var(--accent)" }}
+                            style={{ color: achievement.color }}
                           >
                             {achievement.year}
                           </div>
@@ -164,7 +171,7 @@ export function Achievements() {
                     <div
                       className="w-5 h-5 rounded-full border-4 absolute z-10"
                       style={{
-                        borderColor: "var(--primary)",
+                        borderColor: achievement.color,
                         backgroundColor: "var(--background)",
                       }}
                     />

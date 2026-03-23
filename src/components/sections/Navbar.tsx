@@ -42,8 +42,8 @@ export function Navbar() {
             className="flex items-center gap-1"
             whileHover={{ scale: 1.05 }}
           >
-            <a href="/" className="text-3xl font-heading font-bold">
-              WP<span style={{ color: "var(--primary)" }}>.</span>
+            <a href="/">
+              <img src="/logo/wp-icon-white.png" alt="WP" className="h-20 w-auto -my-8" />
             </a>
           </motion.div>
 

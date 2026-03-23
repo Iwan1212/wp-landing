@@ -4,42 +4,12 @@ import { Badge } from "../ui/Badge";
 import { Button } from "../ui/Button";
 import { BackgroundBeams } from "../ui/BackgroundBeams";
 
-function CompassLogo() {
-  return (
-    <svg
-      viewBox="0 0 200 200"
-      className="w-64 h-64 opacity-20"
-      style={{ color: "var(--primary)" }}
-    >
-      <g stroke="currentColor" strokeWidth="2" fill="none">
-        {/* Outer circle */}
-        <circle cx="100" cy="100" r="95" />
-
-        {/* Cardinal points */}
-        <line x1="100" y1="10" x2="100" y2="40" strokeWidth="3" />
-        <line x1="100" y1="160" x2="100" y2="190" strokeWidth="3" />
-        <line x1="10" y1="100" x2="40" y2="100" strokeWidth="3" />
-        <line x1="160" y1="100" x2="190" y2="100" strokeWidth="3" />
-
-        {/* Intercardinal points */}
-        <line x1="135" y1="35" x2="150" y2="20" strokeWidth="2" />
-        <line x1="65" y1="165" x2="50" y2="180" strokeWidth="2" />
-        <line x1="35" y1="135" x2="20" y2="150" strokeWidth="2" />
-        <line x1="165" y1="65" x2="180" y2="50" strokeWidth="2" />
-
-        {/* Inner decoration */}
-        <circle cx="100" cy="100" r="25" />
-        <path d="M 100 75 L 110 90 L 100 100 L 90 90 Z" fill="currentColor" />
-      </g>
-    </svg>
-  );
-}
 
 const stats = [
-  { label: "lat doświadczenia", value: "10+" },
-  { label: "zawodników", value: "50+" },
-  { label: "sekcje", value: "3" },
-  { label: "turniejów", value: "100+" },
+  { label: "lat doświadczenia", value: "10+", color: "#FF7D00" },
+  { label: "zawodników", value: "50+", color: "#008491" },
+  { label: "sekcje", value: "3", color: "#8B6FD0" },
+  { label: "turniejów", value: "100+", color: "#FF7D00" },
 ];
 
 export function Hero() {
@@ -109,13 +79,14 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="hidden lg:flex justify-center items-center"
           >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="relative"
-            >
-              <CompassLogo />
-            </motion.div>
+            <motion.img
+              src="/logo/wp-icon-white.png"
+              alt="Wrocław Południe"
+              className="w-[28rem] h-auto opacity-20 cursor-pointer"
+              animate={{ rotate: [0, 25, -20, 15, -10, 5, 0] }}
+              transition={{ duration: 4, repeat: Infinity, repeatDelay: 2, ease: "easeInOut" }}
+              whileTap={{ rotate: [0, -360], transition: { duration: 1.5, ease: "easeInOut" } }}
+            />
           </motion.div>
         </div>
 
@@ -134,7 +105,7 @@ export function Hero() {
             >
               <div
                 className="text-3xl md:text-4xl font-heading font-black mb-2"
-                style={{ color: "var(--accent)" }}
+                style={{ color: stat.color }}
               >
                 {stat.value}
               </div>

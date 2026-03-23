@@ -28,7 +28,7 @@ export default {
         "deep-umber": "var(--deep-umber)",
       },
       fontFamily: {
-        heading: ["Oswald", "sans-serif"],
+        heading: ["Korolev Compressed", "sans-serif"],
         body: ["Inter", "sans-serif"],
       },
       borderRadius: {
