@@ -1,16 +1,48 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { Button } from "../ui/Button";
 
 const navLinks = [
-  { label: "O nas", href: "#about" },
-  { label: "Drużyny", href: "#teams" },
-  { label: "Osiągnięcia", href: "#achievements" },
-  { label: "Treningi", href: "#training" },
-  { label: "Galeria", href: "#gallery" },
-  { label: "Kontakt", href: "#contact" },
+  { label: "O nas", href: "/#about" },
+  { label: "Drużyny", href: "/#teams" },
+  { label: "Osiągnięcia", href: "/#achievements" },
+  { label: "Treningi", href: "/#training" },
+  { label: "Galeria", href: "/galeria" },
+  { label: "Kontakt", href: "/#contact" },
 ];
+
+function NavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) {
+  const location = useLocation();
+  const isHashLink = href.startsWith("/#");
+  const isActive = href === "/galeria" && location.pathname.startsWith("/galeria");
+
+  if (isHashLink) {
+    const handleClick = () => {
+      onClick?.();
+      if (location.pathname !== "/") {
+        // Navigate to home first, then scroll
+        window.location.href = href;
+      } else {
+        const id = href.replace("/#", "");
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    return (
+      <button onClick={handleClick} className="text-left">
+        {children}
+      </button>
+    );
+  }
+
+  return (
+    <Link to={href} onClick={onClick} className={isActive ? "text-primary" : ""}>
+      {children}
+    </Link>
+  );
+}
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,28 +74,28 @@ export function Navbar() {
             className="flex items-center gap-1"
             whileHover={{ scale: 1.05 }}
           >
-            <a href="/">
+            <Link to="/">
               <img src="/logo/wp-icon-white.png" alt="WP" className="h-20 w-auto -my-8" />
-            </a>
+            </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link, i) => (
-              <motion.a
-                key={i}
-                href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors relative"
-                whileHover={{ y: -2 }}
-              >
-                {link.label}
+              <NavLink key={i} href={link.href}>
                 <motion.span
-                  className="absolute bottom-0 left-0 h-0.5 bg-primary"
-                  initial={{ width: "0%" }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.a>
+                  className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors relative inline-block"
+                  whileHover={{ y: -2 }}
+                >
+                  {link.label}
+                  <motion.span
+                    className="absolute bottom-0 left-0 h-0.5 bg-primary"
+                    initial={{ width: "0%" }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.span>
+              </NavLink>
             ))}
           </div>
 
@@ -100,15 +132,14 @@ export function Navbar() {
       >
         <div className="px-4 py-6 space-y-4">
           {navLinks.map((link, i) => (
-            <motion.a
-              key={i}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="block text-sm font-medium text-foreground/80 hover:text-foreground transition-colors py-2"
-              whileHover={{ x: 4 }}
-            >
-              {link.label}
-            </motion.a>
+            <NavLink key={i} href={link.href} onClick={() => setIsOpen(false)}>
+              <motion.span
+                className="block text-sm font-medium text-foreground/80 hover:text-foreground transition-colors py-2"
+                whileHover={{ x: 4 }}
+              >
+                {link.label}
+              </motion.span>
+            </NavLink>
           ))}
           <div className="pt-4 border-t border-primary/10">
             <Button variant="primary" size="default" className="w-full justify-center">

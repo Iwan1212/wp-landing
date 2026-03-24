@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom";
 import { FloatingDisc } from "./components/ui/FloatingDisc";
 import { Navbar } from "./components/sections/Navbar";
 import { Hero } from "./components/sections/Hero";
@@ -10,13 +11,12 @@ import { Sponsors } from "./components/sections/Sponsors";
 import { Blog } from "./components/sections/Blog";
 import { CTA } from "./components/sections/CTA";
 import { Footer } from "./components/sections/Footer";
+import { GalleryPage } from "./pages/GalleryPage";
+import { EventPage } from "./pages/EventPage";
 
-export default function App() {
+function HomePage() {
   return (
     <>
-      <FloatingDisc />
-      <div className="min-h-screen relative overflow-clip" style={{ backgroundColor: "var(--background)" }}>
-        <Navbar />
       <Hero />
       <About />
       <Teams />
@@ -26,6 +26,21 @@ export default function App() {
       <Sponsors />
       <Blog />
       <CTA />
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <>
+      <FloatingDisc />
+      <div className="min-h-screen relative overflow-clip" style={{ backgroundColor: "var(--background)" }}>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/galeria" element={<GalleryPage />} />
+          <Route path="/galeria/:slug" element={<EventPage />} />
+        </Routes>
         <Footer />
       </div>
     </>

@@ -29,8 +29,7 @@ export function Hero() {
       <BackgroundBeams />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
+        <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -70,23 +69,6 @@ export function Hero() {
                 Poznaj drużynę
               </Button>
             </motion.div>
-          </motion.div>
-
-          {/* Right side - Compass logo (desktop only) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -20 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:flex justify-center items-center"
-          >
-            <motion.img
-              src="/logo/wp-icon-white.png"
-              alt="Wrocław Południe"
-              className="w-[28rem] h-auto opacity-20 cursor-pointer"
-              animate={{ rotate: [0, 25, -20, 15, -10, 5, 0] }}
-              transition={{ duration: 4, repeat: Infinity, repeatDelay: 2, ease: "easeInOut" }}
-              whileTap={{ rotate: [0, -360], transition: { duration: 1.5, ease: "easeInOut" } }}
-            />
           </motion.div>
         </div>
 

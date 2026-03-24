@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
 import { Badge } from "../ui/Badge";
 import { BlurText } from "../ui/BlurText";
 
@@ -37,7 +39,6 @@ export function Gallery() {
           delay={0.1}
         />
 
-        {/* Replace gradient placeholders with actual team photos */}
         <div className="grid grid-cols-4 gap-4 auto-rows-[250px] md:auto-rows-[300px]">
           {tournaments.map((tournament, idx) => (
             <motion.div
@@ -67,6 +68,22 @@ export function Gallery() {
             </motion.div>
           ))}
         </div>
+
+        {/* Link to full gallery */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <Link
+            to="/galeria"
+            className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors font-medium group"
+          >
+            Zobacz całą galerię
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

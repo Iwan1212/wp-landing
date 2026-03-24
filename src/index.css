@@ -121,4 +121,18 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
   }
+
+  @keyframes compass-oscillate {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+    15% { transform: translate(-50%, -50%) rotate(25deg); }
+    35% { transform: translate(-50%, -50%) rotate(-20deg); }
+    55% { transform: translate(-50%, -50%) rotate(15deg); }
+    70% { transform: translate(-50%, -50%) rotate(-10deg); }
+    85% { transform: translate(-50%, -50%) rotate(5deg); }
+  }
+
+  .animate-compass {
+    animation: compass-oscillate 4s ease-in-out infinite;
+    animation-delay: 1s;
+  }
 }
