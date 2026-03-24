@@ -79,7 +79,7 @@ export function CTA() {
               <Button variant="primary" size="lg">
                 Zapisz się na trening
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" href="#contact">
                 Napisz do nas
               </Button>
             </motion.div>

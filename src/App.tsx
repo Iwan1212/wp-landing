@@ -10,6 +10,7 @@ import { Training } from "./components/sections/Training";
 import { Sponsors } from "./components/sections/Sponsors";
 import { Blog } from "./components/sections/Blog";
 import { CTA } from "./components/sections/CTA";
+import { Contact } from "./components/sections/Contact";
 import { Footer } from "./components/sections/Footer";
 import { GalleryPage } from "./pages/GalleryPage";
 import { EventPage } from "./pages/EventPage";
@@ -26,6 +27,7 @@ function HomePage() {
       <Sponsors />
       <Blog />
       <CTA />
+      <Contact />
     </>
   );
 }
